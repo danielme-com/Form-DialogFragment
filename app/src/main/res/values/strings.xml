@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">DialogFragment Form</string>
+    <string name="firstname">First Name (*)</string>
+    <string name="mandatory">This field is mandatory</string>
+    <string name="lastname">Last Name</string>
+    <string name="edit">Edit</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+</resources>
