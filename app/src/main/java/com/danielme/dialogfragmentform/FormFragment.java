@@ -2,6 +2,7 @@ package com.danielme.dialogfragmentform;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -68,14 +69,7 @@ public class FormFragment extends AppCompatDialogFragment {
             .setCancelable(true)
             .setTitle(R.string.edit)
             .setPositiveButton(getString(R.string.save), null);
-    /*
-    .setPositiveButton(getString(R.string.save), new DialogInterface.OnClickListener() {
-          @Override
-          public void onClick(DialogInterface dialogInterface, int i) {
-            returnValues();
-          }
-        });
-     */
+    //.setPositiveButton(getString(R.string.save), (dialogInterface, i) -> returnValues());
 
     AlertDialog alertDialog = builder.create();
     //asegura que se muestre el teclado
@@ -88,13 +82,10 @@ public class FormFragment extends AppCompatDialogFragment {
   public void onStart() {
     super.onStart();
     Button positiveButton = ((AlertDialog) getDialog()).getButton(Dialog.BUTTON_POSITIVE);
-    positiveButton.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        if (validate()) {
-          returnValues();
-          getDialog().dismiss();
-        }
+    positiveButton.setOnClickListener(view -> {
+      if (validate()) {
+        returnValues();
+        getDialog().dismiss();
       }
     });
   }
@@ -122,16 +113,13 @@ public class FormFragment extends AppCompatDialogFragment {
     textInputLastName.setText(getArguments().getString(ARG_LASTNAME));
     textInputLastName.setSelection(getArguments().getString(ARG_LASTNAME).length());
 
-    textInputLastName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-      @Override
-      public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-        if (actionId == EditorInfo.IME_ACTION_DONE) {
-          returnValues();
-          dismiss();
-          return true;
-        }
-        return false;
+    textInputLastName.setOnEditorActionListener((textView, actionId, keyEvent) -> {
+      if (actionId == EditorInfo.IME_ACTION_DONE) {
+        returnValues();
+        dismiss();
+        return true;
       }
+      return false;
     });
   }
 

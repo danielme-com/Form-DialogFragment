@@ -9,6 +9,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -16,9 +17,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.google.android.material:material:1.2.1'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.1'
 }
