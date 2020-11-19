@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
 
 import androidx.appcompat.app.AlertDialog;
@@ -63,7 +64,7 @@ public class FormFragment extends AppCompatDialogFragment {
 
     setupContent(content);
 
-    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getContext());
     builder.setView(content)
             .setNegativeButton(getString(R.string.cancel), null)
             .setCancelable(true)
