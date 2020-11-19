@@ -3,10 +3,14 @@ package com.danielme.dialogfragmentform;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
+
 import com.google.android.material.textfield.TextInputLayout;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
+
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -44,11 +48,10 @@ public class FormFragment extends AppCompatDialogFragment {
   @Override
   public void onAttach(Context context) {
     super.onAttach(context);
-    listener = (FormDialogListener) context;
-    try {
+    if (context instanceof FormDialogListener) {
       listener = (FormDialogListener) context;
-    } catch (ClassCastException e) {
-      throw new ClassCastException(context.toString() + " must implement FormDialogListener");
+    } else {
+      throw new IllegalArgumentException("context is not FormDialogListener");
     }
   }
 
