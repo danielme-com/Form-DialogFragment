@@ -1,53 +1,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         style="@style/AppTheme.Toolbar" />
 
     <TextView
         android:id="@+id/textViewFirstNameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/firstname"
-        style="@style/AppTheme.Margins"
-        android:layout_marginTop="@dimen/activity_margin"
-        />
+        style="@style/AppTheme.TextViewLabel"
+        android:text="@string/firstname" />
 
     <TextView
         android:id="@+id/textViewFirstNameContent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        style="@style/AppTheme.Margins"/>
+        style="@style/AppTheme.TextViewContent" />
 
     <TextView
         android:id="@+id/textViewLastNameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/lastname"
-        style="@style/AppTheme.Margins"
-        />
+        style="@style/AppTheme.TextViewLabel"
+        android:text="@string/lastname" />
 
     <TextView
         android:id="@+id/textViewLastNameContent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/AppTheme.Margins"
-        android:textStyle="bold"/>
+        style="@style/AppTheme.TextViewContent"/>
 
     <Button
         android:id="@+id/button"
+        style="@style/AppTheme.Margins"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/AppTheme.Margins"
         android:onClick="edit"
-        android:textAllCaps="true"
         android:text="@string/edit"/>
+
 
 
 </LinearLayout>
