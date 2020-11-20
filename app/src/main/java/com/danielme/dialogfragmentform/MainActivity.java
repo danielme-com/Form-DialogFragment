@@ -23,9 +23,9 @@ public class MainActivity extends AppCompatActivity implements FormDialogListene
   }
 
   public void edit(View view) {
-    FormFragment form = FormFragment.newInstance(textViewFirstName.getText().toString(),
+    FormDialogFragment form = FormDialogFragment.newInstance(textViewFirstName.getText().toString(),
         textViewLastName.getText().toString());
-    form.show(getSupportFragmentManager(), FormFragment.TAG);
+    form.show(getSupportFragmentManager(), FormDialogFragment.TAG);
   }
 
   @Override
