@@ -12,7 +12,9 @@ import com.google.android.material.textfield.TextInputLayout;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -61,15 +63,15 @@ public class FormDialogFragment extends AppCompatDialogFragment {
 
     setupContent(content);
 
-    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getContext());
-    builder.setView(content)
-            .setNegativeButton(getString(R.string.cancel), null)
+    AlertDialog alertDialog = new MaterialAlertDialogBuilder(getContext())
+            .setView(content)
             .setCancelable(true)
+            .setNegativeButton(getString(R.string.cancel), null)
             .setTitle(R.string.edit)
-            .setPositiveButton(getString(R.string.save), null);
+            .setPositiveButton(getString(R.string.save), null)
+            .create();
     //.setPositiveButton(getString(R.string.save), (dialogInterface, i) -> returnValues());
 
-    AlertDialog alertDialog = builder.create();
     //asegura que se muestre el teclado
     alertDialog.getWindow().setSoftInputMode(
             WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
@@ -118,6 +120,25 @@ public class FormDialogFragment extends AppCompatDialogFragment {
         return true;
       }
       return false;
+    });
+
+    textInputFirstName.addTextChangedListener(new TextWatcher() {
+      @Override
+      public void afterTextChanged(Editable s) {
+        if (textInputFirstName.getVisibility() == View.VISIBLE) {
+          textInputLayoutFirstName.setError(null);
+        }
+      }
+
+      @Override
+      public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        //nothing here
+      }
+
+      @Override
+      public void onTextChanged(CharSequence s, int start, int before, int count) {
+        //nothing here
+      }
     });
   }
 
