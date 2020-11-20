@@ -47,7 +47,7 @@ public class FormDialogFragment extends AppCompatDialogFragment {
   }
 
   @Override
-  public void onAttach(Context context) {
+  public void onAttach(@NonNull Context context) {
     super.onAttach(context);
     if (context instanceof FormDialogListener) {
       listener = (FormDialogListener) context;
