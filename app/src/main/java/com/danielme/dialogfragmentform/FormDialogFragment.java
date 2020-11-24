@@ -72,9 +72,10 @@ public class FormDialogFragment extends AppCompatDialogFragment {
             .create();
     //.setPositiveButton(getString(R.string.save), (dialogInterface, i) -> returnValues());
 
-    //asegura que se muestre el teclado
+    //asegura que se muestre el teclado con el diálogo completo
     alertDialog.getWindow().setSoftInputMode(
-            WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+            WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE
+                    | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     return alertDialog;
   }
 
